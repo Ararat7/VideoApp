@@ -1,0 +1,5 @@
+C:\Users\DigiCom\Documents\Project\VideoApp-iunjr\VideoApp\VideoApp\bin\VideoApp.dll
+C:\Users\DigiCom\Documents\Project\VideoApp-iunjr\VideoApp\VideoApp\bin\VideoApp.pdb
+C:\Users\DigiCom\Documents\Project\VideoApp-iunjr\VideoApp\VideoApp\obj\Debug\VideoApp.dll
+C:\Users\DigiCom\Documents\Project\VideoApp-iunjr\VideoApp\VideoApp\obj\Debug\VideoApp.pdb
+C:\Users\DigiCom\Documents\Project\VideoApp-iunjr\VideoApp\VideoApp\obj\Debug\VideoApp.csprojResolveAssemblyReference.cache

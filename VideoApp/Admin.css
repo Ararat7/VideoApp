@@ -1,0 +1,23 @@
+﻿body {
+}
+
+.style1 {
+            width: 500px;
+            text-align:right;
+        }
+        .style2 {
+            text-align:center;
+        }
+        #Button1 {
+            
+            width: 80px;
+            height: 30px;
+        }
+        .TextBox {
+            width: 300px;
+            
+        }
+        .TextArea {
+            width: 300px;
+            height: 42px;
+        }
