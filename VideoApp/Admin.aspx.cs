@@ -288,9 +288,10 @@ namespace VideoApp
 
         protected void searchTextBox_TextChanged(object sender, EventArgs e)
         {
-
             GridViewFilter();
         }
+
+        SqlTransaction t;
 
         protected void moveUpButton_Click(object sender, EventArgs e)
         {
@@ -310,6 +311,7 @@ namespace VideoApp
                     int.TryParse(GridView1.Rows[selRowIndex - 1].Cells[1].Text, out idToBEMovedDown);
 
                     conn.Open();
+                    t = conn.BeginTransaction();
 
                     SqlCommand moveUp = new SqlCommand();
                     moveUp.Connection = conn;
@@ -326,6 +328,8 @@ namespace VideoApp
                     moveDown.Parameters.AddWithValue(@"Ordering", orderNumberToBeMovedDown);
                     moveDown.Parameters.AddWithValue(@"Id", idToBEMovedUp);
                     moveDown.ExecuteNonQuery();
+
+                    t.Commit();
 
                     GridViewFilter();
                     GridView1.SelectedIndex--;
@@ -358,6 +362,7 @@ namespace VideoApp
                     int.TryParse(GridView1.Rows[selRowIndex].Cells[1].Text, out idToBEMovedDown);
 
                     conn.Open();
+                    t = conn.BeginTransaction();
 
                     SqlCommand moveUp = new SqlCommand();
                     moveUp.Connection = conn;
@@ -374,6 +379,8 @@ namespace VideoApp
                     moveDown.Parameters.AddWithValue(@"Ordering", orderNumberToBeMovedDown);
                     moveDown.Parameters.AddWithValue(@"Id", idToBEMovedUp);
                     moveDown.ExecuteNonQuery();
+
+                    t.Commit();
 
                     GridViewFilter();
                     GridView1.SelectedIndex++;
