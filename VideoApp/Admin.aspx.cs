@@ -278,13 +278,18 @@ namespace VideoApp
             mapsTextBox.Value = string.Format("{0}", GridView1.SelectedRow.Cells[14].Text.Replace("&#39;", @"'").Replace("&amp;", @"&").Replace("&nbsp;", @""));
         }
 
-        protected void searchTextBox_TextChanged(object sender, EventArgs e)
+        private void GridViewFilter()
         {
-
             SqlDataSource1.FilterExpression = "[Name] LIKE '%{0}%'";
             SqlDataSource1.FilterParameters.Clear();
             SqlDataSource1.FilterParameters.Add("Name", searchTextBox.Text);
             GridView1.DataBind();
+        }
+
+        protected void searchTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+            GridViewFilter();
         }
 
         protected void moveUpButton_Click(object sender, EventArgs e)
@@ -322,7 +327,8 @@ namespace VideoApp
                     moveDown.Parameters.AddWithValue(@"Id", idToBEMovedUp);
                     moveDown.ExecuteNonQuery();
 
-                    GridView1.DataBind();
+                    GridViewFilter();
+                    GridView1.SelectedIndex--;
                 }
                 catch
                 {
@@ -369,7 +375,8 @@ namespace VideoApp
                     moveDown.Parameters.AddWithValue(@"Id", idToBEMovedUp);
                     moveDown.ExecuteNonQuery();
 
-                    GridView1.DataBind();
+                    GridViewFilter();
+                    GridView1.SelectedIndex++;
                 }
                 catch
                 {
