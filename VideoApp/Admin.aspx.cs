@@ -314,6 +314,7 @@ namespace VideoApp
                     t = conn.BeginTransaction();
 
                     SqlCommand moveUp = new SqlCommand();
+                    moveUp.Transaction = t;
                     moveUp.Connection = conn;
                     moveUp.CommandText = "UPDATE Videos SET Ordering=@Ordering WHERE Id=@Id";
                     moveUp.CommandType = CommandType.Text;
@@ -322,6 +323,7 @@ namespace VideoApp
                     moveUp.ExecuteNonQuery();
 
                     SqlCommand moveDown = new SqlCommand();
+                    moveDown.Transaction = t;
                     moveDown.Connection = conn;
                     moveDown.CommandText = "UPDATE Videos SET Ordering=@Ordering WHERE Id=@Id";
                     moveDown.CommandType = CommandType.Text;
@@ -365,6 +367,7 @@ namespace VideoApp
                     t = conn.BeginTransaction();
 
                     SqlCommand moveUp = new SqlCommand();
+                    moveUp.Transaction = t;
                     moveUp.Connection = conn;
                     moveUp.CommandText = "UPDATE Videos SET Ordering=@Ordering WHERE Id=@Id";
                     moveUp.CommandType = CommandType.Text;
@@ -373,6 +376,7 @@ namespace VideoApp
                     moveUp.ExecuteNonQuery();
 
                     SqlCommand moveDown = new SqlCommand();
+                    moveDown.Transaction = t;
                     moveDown.Connection = conn;
                     moveDown.CommandText = "UPDATE Videos SET Ordering=@Ordering WHERE Id=@Id";
                     moveDown.CommandType = CommandType.Text;

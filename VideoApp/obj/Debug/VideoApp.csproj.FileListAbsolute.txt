@@ -3,3 +3,13 @@ C:\Users\DigiCom\Documents\Project\VideoApp-iunjr\VideoApp\VideoApp\bin\VideoApp
 C:\Users\DigiCom\Documents\Project\VideoApp-iunjr\VideoApp\VideoApp\obj\Debug\VideoApp.dll
 C:\Users\DigiCom\Documents\Project\VideoApp-iunjr\VideoApp\VideoApp\obj\Debug\VideoApp.pdb
 C:\Users\DigiCom\Documents\Project\VideoApp-iunjr\VideoApp\VideoApp\obj\Debug\VideoApp.csprojResolveAssemblyReference.cache
+I:\Project\new\VideoApp\VideoApp\bin\VideoApp.dll
+I:\Project\new\VideoApp\VideoApp\bin\VideoApp.pdb
+I:\Project\new\VideoApp\VideoApp\obj\Debug\VideoApp.csprojResolveAssemblyReference.cache
+I:\Project\new\VideoApp\VideoApp\obj\Debug\VideoApp.dll
+I:\Project\new\VideoApp\VideoApp\obj\Debug\VideoApp.pdb
+C:\Users\DigiCom\Documents\Project\VideoApp\VideoApp\bin\VideoApp.dll
+C:\Users\DigiCom\Documents\Project\VideoApp\VideoApp\bin\VideoApp.pdb
+C:\Users\DigiCom\Documents\Project\VideoApp\VideoApp\obj\Debug\VideoApp.csprojResolveAssemblyReference.cache
+C:\Users\DigiCom\Documents\Project\VideoApp\VideoApp\obj\Debug\VideoApp.dll
+C:\Users\DigiCom\Documents\Project\VideoApp\VideoApp\obj\Debug\VideoApp.pdb

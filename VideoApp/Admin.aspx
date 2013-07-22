@@ -12,6 +12,13 @@
             width: 250px;
             text-align: right;
         }
+        .Short {
+            max-width:100px;
+            overflow:hidden;
+            white-space:nowrap;
+            text-overflow:ellipsis;
+            
+        }
     </style>
 </head>
 <body>
@@ -127,20 +134,20 @@
                         <AlternatingRowStyle BackColor="White" />
                         <Columns>
                             <asp:CommandField ShowSelectButton="True" />
-                            <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
-                            <asp:BoundField DataField="Ordering" HeaderText="Ordering" SortExpression="Ordering" />
-                            <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
-                            <asp:BoundField DataField="Path" HeaderText="Path" SortExpression="Path" />
-                            <asp:BoundField DataField="Text1" HeaderText="Text1" SortExpression="Text1" />
-                            <asp:BoundField DataField="Text2" HeaderText="Text2" SortExpression="Text2" />
-                            <asp:BoundField DataField="Details" HeaderText="Details" SortExpression="Details" />
-                            <asp:BoundField DataField="Link1" HeaderText="Link1" SortExpression="Link1" />
-                            <asp:BoundField DataField="Link2" HeaderText="Link2" SortExpression="Link2" />
-                            <asp:BoundField DataField="Facebook" HeaderText="Facebook" SortExpression="Facebook" />
-                            <asp:BoundField DataField="Twitter" HeaderText="Twitter" SortExpression="Twitter" />
-                            <asp:BoundField DataField="AppStore" HeaderText="AppStore" SortExpression="AppStore" />
-                            <asp:BoundField DataField="GooglePlay" HeaderText="GooglePlay" SortExpression="GooglePlay" />
-                            <asp:BoundField DataField="Maps" HeaderText="Maps" SortExpression="Maps" />
+                            <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" ItemStyle-CssClass="Short" />
+                            <asp:BoundField DataField="Ordering" HeaderText="Ordering" SortExpression="Ordering" ItemStyle-CssClass="Short" />
+                            <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" ItemStyle-CssClass="Short" />
+                            <asp:BoundField DataField="Path" HeaderText="Path" SortExpression="Path" ItemStyle-CssClass="Short" />
+                            <asp:BoundField DataField="Text1" HeaderText="Text1" SortExpression="Text1" ItemStyle-CssClass="Short" />
+                            <asp:BoundField DataField="Text2" HeaderText="Text2" SortExpression="Text2" ItemStyle-CssClass="Short" />
+                            <asp:BoundField DataField="Details" HeaderText="Details" SortExpression="Details" ItemStyle-CssClass="Short" />
+                            <asp:BoundField DataField="Link1" HeaderText="Link1" SortExpression="Link1" ItemStyle-CssClass="Short" />
+                            <asp:BoundField DataField="Link2" HeaderText="Link2" SortExpression="Link2" ItemStyle-CssClass="Short" />
+                            <asp:BoundField DataField="Facebook" HeaderText="Facebook" SortExpression="Facebook" ItemStyle-CssClass="Short" />
+                            <asp:BoundField DataField="Twitter" HeaderText="Twitter" SortExpression="Twitter" ItemStyle-CssClass="Short" />
+                            <asp:BoundField DataField="AppStore" HeaderText="AppStore" SortExpression="AppStore" ItemStyle-CssClass="Short" />
+                            <asp:BoundField DataField="GooglePlay" HeaderText="GooglePlay" SortExpression="GooglePlay" ItemStyle-CssClass="Short" />
+                            <asp:BoundField DataField="Maps" HeaderText="Maps" SortExpression="Maps" ItemStyle-CssClass="Short" />
                         </Columns>
                         <EditRowStyle BackColor="#2461BF" />
                         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" />
