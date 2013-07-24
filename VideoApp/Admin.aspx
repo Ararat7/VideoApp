@@ -9,15 +9,23 @@
 
     <style type="text/css">
         .auto-style1 {
-            width: 250px;
+            min-width: 70px;
             text-align: right;
         }
         .Short {
-            max-width:100px;
+            max-width:90px;
             overflow:hidden;
             white-space:nowrap;
             text-overflow:ellipsis;
             
+        }
+        .auto-style2 {
+            min-width: 70px;
+            text-align: right;
+            height: 30px;
+        }
+        .auto-style3 {
+            height: 30px;
         }
     </style>
 </head>
@@ -26,17 +34,18 @@
 
         <!-- upload -->
  
-          <fieldset >
+          <fieldset style="width:1280px;">
               <legend>Admin panel
               </legend>
           
           
-        <table style="width: 100%;">
+        <table style="width:100%;">
              <tr>
-                  
                 <td class="auto-style1">Upload video:</td>
                 <td colspan="3">
-                     <asp:FileUpload id="FileUploadControl" runat="server" />
+                     <asp:FileUpload id="FileUploadControl" runat="server" Width="300px" />
+                    <asp:RequiredFieldValidator ID="UploadControlValidator" ValidationGroup="Upload" runat="server"
+                         ErrorMessage="Choose a video for Upload!" Text="*" ForeColor="Red" ControlToValidate="FileUploadControl"></asp:RequiredFieldValidator>
                 </td>
                  <td class="auto-style1">
                      Facebook:
@@ -44,17 +53,20 @@
                  <td>
                      <input id="facebookTextBox" type="text" class="TextBox" runat="server" />
                  </td>
-                  
             </tr>
              <tr>
-                <td class="auto-style1">ID:</td>
-                <td colspan="3">
+                <td class="auto-style2">ID:</td>
+                <td colspan="3" class="auto-style3">
                     <input id="Text6" type="text" class="TextBox" readonly="readonly" runat="server" />
+                    <asp:RequiredFieldValidator ID="IdValidator_Delete" ValidationGroup="Delete" ControlToValidate="Text6"
+                         runat="server" ErrorMessage="Select a video for Deleting!" Text="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="IdValidator_Update" ValidationGroup="Update" ControlToValidate="Text6"
+                         runat="server" ErrorMessage="Select a video for Updating!" Text="*" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
-                 <td class="auto-style1">
+                 <td class="auto-style2">
                      Twitter:
                  </td>
-                 <td>
+                 <td class="auto-style3">
                      <input id="twitterTextBox" type="text" class="TextBox" runat="server" />
                  </td>
             </tr>
@@ -62,6 +74,10 @@
                 <td class="auto-style1">Name:</td>
                 <td>
                     <input id="Text1" type="text" class="TextBox" runat="server" />
+                    <asp:RequiredFieldValidator ID="NameValidator_Upload" ValidationGroup="Upload" ControlToValidate="Text1"
+                         runat="server" ErrorMessage="Write a name for video!" Text="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="NameValidator_Update" ValidationGroup="Update" ControlToValidate="Text1"
+                         runat="server" ErrorMessage="Write a name for video!" Text="*" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
                 <td class="auto-style1">Details:</td>
                 <td>
@@ -102,13 +118,22 @@
                      <input id="mapsTextBox" type="text" class="TextBox" runat="server" />
                  </td>
             </tr>
-             <tr>
+             <tr style="height:80px;">
                 
-                <td colspan="6" class="style2" >
-                    <asp:Button ID="Button1" runat="server" Text="Upload" Height="30px" Width="90px" OnClick="Button1_Click" />
-                   &nbsp;<asp:Button ID="Button2" runat="server" Height="30px" Text="Update" Width="90px" OnClick="Button2_Click" />
-                    &nbsp;<asp:Button ID="Button3" runat="server" Height="30px" Text="Delete" Width="90px" OnClick="Button3_Click" />
+                <td colspan="2" class="style2" >
+                    <asp:Button ID="Button1" runat="server" Text="Upload" Height="30px" Width="90px" OnClick="Button1_Click"
+                         CausesValidation="true" ValidationGroup="Upload"/>
+                   &nbsp;<asp:Button ID="Button2" runat="server" Height="30px" Text="Update" Width="90px" OnClick="Button2_Click"
+                        CausesValidation="true" ValidationGroup="Update" />
+                    &nbsp;<asp:Button ID="Button3" runat="server" Height="30px" Text="Delete" Width="90px" OnClick="Button3_Click"
+                         CausesValidation="true" ValidationGroup="Delete" />
+                    &nbsp;<asp:Button ID="Button4" runat="server" Height="30px" Text="Clear" Width="90px" OnClick="Button4_Click" />
                    </td>
+                 <td colspan="4">
+                     <asp:ValidationSummary ID="ValidationSummary1" ValidationGroup="Upload" ForeColor="Red" runat="server" />
+                     <asp:ValidationSummary ID="ValidationSummary2" ValidationGroup="Update" ForeColor="Red" runat="server" />
+                     <asp:ValidationSummary ID="ValidationSummary3" ValidationGroup="Delete" ForeColor="Red" runat="server" />
+                 </td>
             </tr>
             <tr>
                 <td class="auto-style1">
@@ -116,10 +141,11 @@
                 </td>
                 <td colspan="5">
                     <asp:TextBox ID="searchTextBox" Width="300px" AutoPostBack="true" runat="server" OnTextChanged="searchTextBox_TextChanged"></asp:TextBox>
+                    <asp:Button ID="searchButton" runat="server" Text="Search" />
                 </td>
             </tr>
             <tr>
-                <td colspan="6">
+                <td colspan="6" style="padding-top:20px">
                     <asp:Button ID="moveUpButton" runat="server" Text="Move Up" OnClick="moveUpButton_Click" />
                     <asp:Button ID="MoveDownButton" runat="server" Text="Move Down" OnClick="MoveDownButton_Click" />
                 </td>
@@ -129,8 +155,9 @@
                     &nbsp;<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Videos] ORDER BY [Ordering]" >
                     </asp:SqlDataSource>
                     <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True"
-                        AutoGenerateColumns="False" CellPadding="6" DataKeyNames="Id" DataSourceID="SqlDataSource1" ForeColor="#333333"
-                        GridLines="None" BorderWidth="1px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" BorderStyle="Solid">
+                        AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Id" DataSourceID="SqlDataSource1" ForeColor="#333333"
+                        GridLines="None" BorderWidth="1px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" BorderStyle="Solid"
+                         OnRowDataBound="GridView1_RowDataBound" PageSize="7">
                         <AlternatingRowStyle BackColor="White" />
                         <Columns>
                             <asp:CommandField ShowSelectButton="True" />

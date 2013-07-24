@@ -82,6 +82,7 @@ namespace VideoApp
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            
             if (FileUploadControl.HasFile && (Text1.Value != string.Empty))
             {
                 Video video = new Video();
@@ -397,6 +398,37 @@ namespace VideoApp
                     conn.Close();
                 }
             }
+        }
+
+        protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                for (int i = 1; i < GridView1.Columns.Count; i++)
+                {
+                    e.Row.Cells[i].ToolTip = e.Row.Cells[i].Text;
+                }
+            }
+        }
+
+        protected void Button4_Click(object sender, EventArgs e)
+        {
+            if (FileUploadControl.HasFile)
+            {
+                FileUploadControl = new FileUpload();
+            }
+            Text6.Value = string.Empty;
+            Text1.Value = string.Empty;
+            TextArea2.Value = string.Empty;
+            TextArea1.Value = string.Empty;
+            TextArea3.Value = string.Empty;
+            Text2.Value = string.Empty;
+            Text7.Value = string.Empty;
+            facebookTextBox.Value = string.Empty;
+            twitterTextBox.Value = string.Empty;
+            appstoreTextBox.Value = string.Empty;
+            googleplayTextBox.Value = string.Empty;
+            mapsTextBox.Value = string.Empty;
         }
     }
 }

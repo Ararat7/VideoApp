@@ -2,11 +2,12 @@
 }
 
 .style1 {
-            width: 500px;
+            width:100%;
             text-align:right;
         }
         .style2 {
-            text-align:center;
+            text-align:left;
+            padding:10px;
         }
         #Button1 {
             
